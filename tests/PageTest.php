@@ -6,16 +6,23 @@ class PageTest extends TestCase
 *
 * @return void
 */
-    public function testBasicExample()
+    public function testHomepage()
     {
         $this->visit('/') //routes
              ->see('Laravel 5');
     }
 
-    public function testDisplaysHomepage()
+    public function testErrorHomepage()
     {
         $this->visit('/') // routes
              ->see('Laravel 5')
              ->dontSee('Error');
+    }
+
+    public function testDisplaysAlpha()
+    {
+        $this->visit('/alpha')
+             ->see('Alpha')
+             ->dontSee('Beta');
     }
 }
